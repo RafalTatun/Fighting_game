@@ -1,5 +1,6 @@
 import pygame
 import champion
+from strawberry import Strawberry
 from sys import exit
 
 # General setup
@@ -17,7 +18,12 @@ ground_surface = pygame.image.load('assets/images/ground.png').convert()
 # Fonts
 text_font = pygame.font.Font("assets/fonts/megaman.ttf", 10)
 
-strawberry = champion.Champion("Strawberry", 10, 3, 100, 300)
+
+# Champions
+
+strawberry = pygame.sprite.GroupSingle()
+strawberry.add(Strawberry('Strawberry', 5, 3, 200, 200))
+    
 
 
 while True:
@@ -31,7 +37,7 @@ while True:
         screen.blit(background_surface, (0,0))
         screen.blit(ground_surface,(0,500))
 
-        
+        strawberry.draw(screen)
         strawberry.update()
     else:
         screen.fill('Olive')
