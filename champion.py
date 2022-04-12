@@ -10,9 +10,9 @@ class Champion(pygame.sprite.Sprite):
         self.gravity = 0
         self.x_pos = x_pos
         self.y_pos = y_pos
-
-    def position(self):
-        pass
+        self.player_walk = pygame.image.load(f'assets/images/{self.name}/sprite.png').convert_alpha()
+        self.image = self.player_walk
+        self.rect = self.image.get_rect(midbottom =(x_pos, y_pos))
 
     def moves(self, up, left, right, abilities):
         # Jump key

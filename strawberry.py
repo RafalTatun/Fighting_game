@@ -2,10 +2,9 @@ from champion import Champion
 import pygame
 
 class Strawberry(Champion):
-    def __init__(self):
-        self.player_walk = pygame.image.load('assets/images/sprite.png').convert_alpha()
-        self.image = self.player_walk
-        self.rect = self.image.get_rect(midbottom =(x_pos, y_pos))
+    def __init__(self, name, attack, speed, x_pos, y_pos):
+        super(Champion, self).__init__()
+        pass
     # Update champion
     def update(self):
         keys = pygame.key.get_pressed()
