@@ -65,8 +65,6 @@ class Champion(pygame.sprite.Sprite):
 
 # Strawberry character
 class Strawberry(Champion):
-    def __init__(self, name, attack, speed, x_pos, y_pos):
-        pass
     # Update champion
     def update(self):
         keys = pygame.key.get_pressed()
