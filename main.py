@@ -1,15 +1,18 @@
 import pygame
 from sys import exit
+from settings import *
+from level import Level
+from game_data import level_0
 
 # General setup
 pygame.init()
+screen = pygame.display.set_mode((screen_width, screen_height))
 clock = pygame.time.Clock()
+level = Level(level_0, screen)
 game_active = True
 
+
 # Game Screen
-screen_width = 800
-screen_height = 400
-screen = pygame.display.set_mode((screen_width, screen_height))
 background_surface = pygame.image.load('assets/images/background.png').convert()
 ground_surface = pygame.image.load('assets/images/ground.png').convert()
 
@@ -82,16 +85,8 @@ while True:
             pygame.quit()
             exit()
 
-
-    if game_active:
-        screen.blit(background_surface, (0,0))
-        screen.blit(ground_surface,(0,500))
-
-        strawberry.draw()
-        strawberry.update()
-    else:
-        screen.fill('Olive')
-        score_message = text_font.render(f'Game end', False, "White")
+    screen.blit(background_surface, (0,0))
+    level.run()
 
     pygame.display.update() 
     clock.tick(60)
